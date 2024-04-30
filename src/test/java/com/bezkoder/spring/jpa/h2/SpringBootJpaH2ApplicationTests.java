@@ -8,6 +8,8 @@ class SpringBootJpaH2ApplicationTests {
 
 	@Test
 	void contextLoads() {
+	    //test if the context loads
+
 	}
 
 }
