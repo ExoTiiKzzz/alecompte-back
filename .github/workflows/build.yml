@@ -28,5 +28,6 @@ jobs:
             git pull origin main
             docker build -t spring-boot-crud .
             cd ..
+            cat ~/.bashrc
             echo "export PATH=$PATH:/usr/local/bin" >> "$GITHUB_ENV"
             docker-compose up -d
