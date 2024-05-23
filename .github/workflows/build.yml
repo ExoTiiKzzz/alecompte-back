@@ -22,12 +22,11 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.SSH_PATH }}
-            docker-compose down
+            docker compose down
             docker rmi spring-boot-crud
             cd alecompte-back
             git pull origin main
             docker build -t spring-boot-crud .
             cd ..
             cat ~/.bashrc
-            echo "export PATH=$PATH:/usr/local/bin" >> "$GITHUB_ENV"
-            docker-compose up -d
+            docker compose up -d
