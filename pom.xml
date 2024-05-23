@@ -47,6 +47,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.bezkoder.spring.data.jpa.h2.SpringBootJpaH2Application</mainClass>
+				</configuration>
 			</plugin>
 
             <plugin>
