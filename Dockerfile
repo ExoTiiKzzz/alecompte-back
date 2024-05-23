@@ -8,7 +8,7 @@ COPY pom.xml /app/
 
 RUN ./mvnw clean install
 
-RUN ls target
+RUN ls -la target
 
 COPY target/spring-boot-jpa-h2-0.0.1-SNAPSHOT.jar /app/app.jar
 
