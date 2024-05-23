@@ -13,13 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: exotiiikzzz/alecompte-back:${{ github.sha }}
-
       - name: SSH into Remote Server
         uses: appleboy/ssh-action@master
         with:
@@ -29,7 +22,10 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.SSH_PATH }}
-            sed -i "s/SHA_BACK/${GITHUB_SHA}/g" docker-compose.yml
-            docker-compose pull
             docker-compose down
+            docker rmi spring-boot-crud
+            cd alecompte-back
+            git pull origin main
+            docker build -t spring-boot-crud .
+            cd ..
             docker-compose up -d
