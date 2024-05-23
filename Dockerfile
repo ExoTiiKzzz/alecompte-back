@@ -10,7 +10,7 @@ RUN ./mvnw clean install
 
 RUN ls target
 
-COPY target/spring-boot-h2-database-crud-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/spring-boot-jpa-h2-0.0.1-SNAPSHOT.jar /app/app.jar
 
 EXPOSE 8080
 
